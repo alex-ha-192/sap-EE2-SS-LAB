@@ -4,7 +4,6 @@ import functools
 import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 
-
 def sinegen(fs, fsig, Nsamp):
     tsamp = 1/fs
     t = np.arange(0, Nsamp*tsamp, tsamp)
@@ -28,6 +27,23 @@ def plot_signal(*args, title='', xlabel='', ylabel='', func='plot', **kwargs):
 
     plt.tight_layout()
     return plt
+
+# # THE FOLLOWING FUNCTION IS NOT INCLUDED BY DEFAULT
+# def plot_signal_with_x_shift(*args, title='', xlabel='', ylabel='', xshift, func='plot', **kwargs):
+#     fig, ax = plt.subplots()
+    
+#     eval('ax.'+func+'(*args, **kwargs)')
+
+#     ax.set(xlabel=xlabel, ylabel=ylabel, title=title)
+#     # Adjust the plotting range of two y axes
+#     org = 0.0  # Origin
+#     pos = 0.05 # Position the origins is aligned
+#     expand = True  # Switch the aligning method
+#     shift.xaxis(ax, org, pos, expand)
+#     ax.grid()
+
+#     plt.tight_layout()
+#     return plt
 
 def plot_spec(*args, title='', dB=False, func='plot'):
     
